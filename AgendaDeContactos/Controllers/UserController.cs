@@ -26,8 +26,12 @@ namespace AgendaDeContactos.Controllers
         [HttpGet(template:"apellido")]
         public IActionResult GetUsuariosxApellido()
         {
-            
             return Ok(_agendaContext.Users);
+        }
+        [HttpPost]
+        public IActionResult SendUsuarios()
+        {
+            return Ok();
         }
 
     }
