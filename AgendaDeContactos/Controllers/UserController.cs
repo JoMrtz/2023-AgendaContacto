@@ -20,13 +20,14 @@ namespace AgendaDeContactos.Controllers
         }
         [HttpDelete]
         public IActionResult EliminarUsuario()
+
         {
             return NoContent();
         }
         [HttpGet(template:"apellido")]
-        public IActionResult GetUsuariosxApellido()
+        public IActionResult GetUsuariosxApellido(string apellido)
         {
-            return Ok(_agendaContext.Users);
+            return Ok(_agendaContext.Users.Where(x=> x.LastName == apellido).ToList());
         }
         [HttpPost]
         public IActionResult SendUsuarios()
@@ -34,5 +35,10 @@ namespace AgendaDeContactos.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        public IActionResult UpdateUser(UserController userToUpdateDto)
+        {
+
+        }
     }
 }

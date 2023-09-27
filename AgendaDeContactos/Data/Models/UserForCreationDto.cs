@@ -1,4 +1,4 @@
-﻿namespace AgendaDeContactos.Models
+﻿namespace AgendaDeContactos.Data.Models
 {
     public class UserForCreationDto
     {
