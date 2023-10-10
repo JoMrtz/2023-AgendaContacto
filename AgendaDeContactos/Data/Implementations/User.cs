@@ -6,7 +6,7 @@ namespace AgendaDeContactos.Data.Implementations
     public class User
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]//auto genera el valor de la key automaticamente se encarga la base de datos de generar el valor 
         public int Id { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }

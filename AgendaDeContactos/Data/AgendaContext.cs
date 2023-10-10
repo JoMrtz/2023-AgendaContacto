@@ -5,7 +5,7 @@ using System.Reflection.Emit;
 
 public class AgendaContext : DbContext
 {
-    public DbSet<User> Users { get; set; }
+    public DbSet<User> Users { get; set; } // el dbset es un objeto el lo que entity framework toma como tabla
     public DbSet<Contact> Contacts { get; set; }
 
     public AgendaContext(DbContextOptions<AgendaContext> options) : base(options) //Acá estamos llamando al constructor de DbContext que es el que acepta las opciones
@@ -13,7 +13,7 @@ public class AgendaContext : DbContext
 
     }
 
-    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    protected override void OnModelCreating(ModelBuilder modelBuilder) // este metodo es del padre
     {
         User karen = new User()
         {

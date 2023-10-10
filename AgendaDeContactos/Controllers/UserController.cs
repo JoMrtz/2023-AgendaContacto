@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AgendaDeContactos.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AgendaDeContactos.Controllers
@@ -7,10 +8,13 @@ namespace AgendaDeContactos.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
+        private readonly UserService _service;
+
         private AgendaContext _agendaContext;
-        public UserController(AgendaContext agendaContext)
+        public UserController(AgendaContext agendaContext, UserService service)
         {
             _agendaContext = agendaContext;
+            _service = service;
         }
 
         [HttpGet]
@@ -38,7 +42,7 @@ namespace AgendaDeContactos.Controllers
         [HttpPut]
         public IActionResult UpdateUser(UserController userToUpdateDto)
         {
-
+            return Ok(_service.UserUpdatealgo);
         }
     }
 }
