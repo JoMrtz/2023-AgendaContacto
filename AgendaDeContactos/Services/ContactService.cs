@@ -36,5 +36,6 @@ namespace AgendaDeContactos.Services
             Contact updatedContacts = _context.Update(contactToUpdate).Entity;
             return updatedContacts;
         }
+       
     }
 }

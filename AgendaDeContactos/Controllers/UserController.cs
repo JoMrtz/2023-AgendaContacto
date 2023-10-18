@@ -1,4 +1,6 @@
-﻿using AgendaDeContactos.Services;
+﻿using AgendaDeContactos.Data.Implementations;
+using AgendaDeContactos.Data.Models;
+using AgendaDeContactos.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -34,9 +36,16 @@ namespace AgendaDeContactos.Controllers
             return Ok(_agendaContext.Users.Where(x=> x.LastName == apellido).ToList());
         }
         [HttpPost]
-        public IActionResult SendUsuarios()
+        public IActionResult CreateUser([FromBody]UserForCreationDto dto)
+
         {
-            return Ok();
+            User userToCreate = new User()
+            {
+                Email = dto.Email,
+                Name = dto.Name,
+                Password = dto.Password
+            };
+            return Ok(_service.Create(userToCreate));
         }
 
         [HttpPut]
@@ -44,5 +53,6 @@ namespace AgendaDeContactos.Controllers
         {
             return Ok(_service.UserUpdatealgo);
         }
+
     }
 }

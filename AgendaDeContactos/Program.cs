@@ -1,3 +1,4 @@
+using AgendaDeContactos.Services;
 using Microsoft.EntityFrameworkCore;
 
 namespace AgendaDeContactos
@@ -16,6 +17,8 @@ namespace AgendaDeContactos
             builder.Services.AddSwaggerGen();
             builder.Services.AddDbContext<AgendaContext>(dbContextOptions => dbContextOptions.UseSqlite(
     builder.Configuration["ConnectionStrings:AgendaAPIDBConnectionString"]));
+            builder.Services.AddScoped<UserService>();
+            
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
